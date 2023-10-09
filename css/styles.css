@@ -93,7 +93,7 @@ body{
 .hero_content__p{
     text-transform: none;
     font-family: merriweather-italic-3d;
-    letter-spacing: normal; 
+    letter-spacing: normal;
     font-size: calc(var(--index) * 1);
 }
 

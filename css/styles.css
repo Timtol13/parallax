@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --index: calc(1vw + 1vh);
+    --transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+}
+
+@font-face {
+    font-family: kamerik-3d;
+    src: url('../fonts/kamerik205-heavy.woff2');
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: merriweather-italic-3d;
+    src: url('../fonts/merriweather-regular-italic.woff2');
+    font-weight: 900;
+}
+
+body{
+    background-color: #000;
+    color: #fff;
+    font-family: kamerik-3d;
+}
+.logo{
+    --logo-size: calc(var(--index) * 7.8);
+    width: var(--logo-size);
+    height: var(--logo-size);
+    background-repeat:  no-repeat;
+    position: absolute;
+    z-index: 100;
+    left: calc(50% - calc(var(--logo-size)/2));
+    top: calc(var(--index) * 2.8);
+}
+
+.layers{
+    perspective: 1000px;
+    overflow: hidden;
+}
+.layers__container{
+    height: 100vh;
+    min-height: 500px;
+    transform-style: preserve-3d;
+    transform: rotateY(var(--move-x)) rotateX(var(--move-y));
+    will-change: transform;
+    transition: transform var(--transition);
+}
+
+.layers__item{
+    position: absolute;
+    inset: 5vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layer-1{
+    transform: translateZ(-55px) scale(1.6);
+}
+.layer-2{
+    transform: translateZ(80px) scale(1.2);
+}
+.layer-3{
+    transform: translateZ(180px) scale(.8);
+}
+.layer-4{
+    transform: translateZ(190px) scale(.9);
+}
+.layer-5{
+    transform: translateZ(300px) scale(.9);
+}
+.layer-6{
+    transform: translateZ(380px);
+}
+.hero_content{
+    font-size: calc(var(--index) * 2.9);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: calc(var(--index) * .15);
+    line-height:calc 1.35em;
+    margin-top: (var(--index) * 5.5);
+}
+.hero_content span{
+    display: block;
+}
+
+.hero_content__p{
+    text-transform: none;
+    font-family: merriweather-italic-3d;
+    letter-spacing: normal; 
+    font-size: calc(var(--index) * 1);
+}
+
+.button-start{
+    font-family: Arial;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 1);
+    letter-spacing: calc(var(--index) * .15);
+    padding: calc(var(--index) * .55) calc(var(--index) * 1.5);
+    background-color: #ffffff00;
+    color: #fff;
+    border-radius: 15em;
+    border: 3px solid #ffffff66;
+    outline: none;
+    cursor: pointer;
+    transition: .6s;
+    &:hover{
+        background-color: #ffffff66;
+    }
+}
+
+.layer-4, .layer-5, .layer-6{
+    pointer-events: none;
+}
